@@ -12,7 +12,7 @@ namespace UTDG_SB.Handlers
     {
         public SpriteFont devFont;
 
-        public void LoadContent(Game game)
+        public void LoadContent(Microsoft.Xna.Framework.Game game)
         {
             devFont = game.Content.Load<SpriteFont>("fonts/devFont");
         }

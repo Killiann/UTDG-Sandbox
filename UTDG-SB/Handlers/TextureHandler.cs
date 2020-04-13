@@ -24,7 +24,7 @@ namespace UTDG_SB.Handlers
 
         public Texture2D cursorTexture;
 
-        public void LoadContent(Game game)
+        public void LoadContent(Microsoft.Xna.Framework.Game game)
         {
             tileMapTexture = game.Content.Load<Texture2D>("images/dungeontiles");
             playerTexture = game.Content.Load<Texture2D>("images/player");

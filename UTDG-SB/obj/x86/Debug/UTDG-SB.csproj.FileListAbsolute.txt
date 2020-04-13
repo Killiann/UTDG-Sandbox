@@ -39,7 +39,6 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.csprojAssemblyReference.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.csproj.CoreCompileInputs.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.csproj.CopyComplete
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.exe

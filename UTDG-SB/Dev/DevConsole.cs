@@ -11,7 +11,7 @@ namespace UTDG_SB.Dev
 {
     class DevConsole
     {
-        private Game1 game;
+        private Main game;
         public enum ConsoleState
         {
             Open,
@@ -57,7 +57,7 @@ namespace UTDG_SB.Dev
         {
             "position"
         };
-        public DevConsole(Game1 game)
+        public DevConsole(Main game)
         {
             this.game = game;
             prevState = currentState;
@@ -91,6 +91,20 @@ namespace UTDG_SB.Dev
                     string baseCmd = leftHand.Split('.')[0];
                     string actionCmd = leftHand.Split('.')[1];
 
+                    if(leftHand.ToLower() == "dev.mode")
+                    {
+                        if (rightHandVal == 1)
+                        {
+                            game.devMode = true;
+                            ExcecutedCommands.Add("Devmode turned on.");
+                        }
+                        else if (rightHandVal == 0)
+                        {
+                            game.devMode = false;
+                            ExcecutedCommands.Add("Devmode turned off.");
+                        }else
+                            ExcecutedCommands.Add("invalid devmode value. try 1 or 0.");
+                    }
                     if(leftHand.ToLower() == "player.maxvel")
                     {
                         game.player.physicsHandler.maxVelocity = rightHandVal;

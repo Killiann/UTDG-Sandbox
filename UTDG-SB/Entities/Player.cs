@@ -19,7 +19,7 @@ namespace UTDG_SB.Entities
         CollisionHandler collisionHandler;
 
         private TileMap map;
-        public Game1 game;
+        public Main game;
 
         //local vars
         private Vector2 prevPos;
@@ -51,7 +51,7 @@ namespace UTDG_SB.Entities
         public void SetYVelocity(float newVel) { velocity.Y = newVel; }
         public void SetXVelocity(float newVel) { velocity.X = newVel; }        
 
-        public Player(Game1 game)
+        public Player(Main game)
         {
             this.map = game.map;
             this.game = game;
@@ -127,11 +127,14 @@ namespace UTDG_SB.Entities
                 spriteBatch.Draw(movingTexture, bounds, new Rectangle(currentFrame * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, facingLeft ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);                
             }
 
-            ////draw collision box
-            //spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, collisionBounds.Width, 2), Color.Red);
-            //spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X + collisionBounds.Width - 2, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
-            //spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y + collisionBounds.Height - 2, collisionBounds.Width, 2), Color.Red);
-            //spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
+            //draw collision box
+            if (game.devMode)
+            {
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, collisionBounds.Width, 2), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X + collisionBounds.Width - 2, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y + collisionBounds.Height - 2, collisionBounds.Width, 2), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
+            }
         }
     }
 }

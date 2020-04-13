@@ -10,7 +10,9 @@ namespace UTDG_SB.Entities
 {
     public class TrainingDummy
     {
+        private Main game;
         private Texture2D texture;
+        private Texture2D collisionBoxTexture;
         private Vector2 position;
         public Vector2 GetPosition() { return position; }        
         public Rectangle bounds { get { return new Rectangle((int)position.X, (int)position.Y, 32, 32); } }
@@ -24,10 +26,17 @@ namespace UTDG_SB.Entities
         private int frameLength = 3;
         private int frameTimer = 0;
 
-        public TrainingDummy(Texture2D texture, Vector2 position, Texture2D hitTexture)
+        public TrainingDummy( Main game, Vector2 position)
         {
-            this.hitTexture = hitTexture;
-            this.texture = texture;
+            hitTexture = game.textureHandler.trainingDummyHit;
+            texture = game.textureHandler.trainingDummyTexture;
+
+            this.game = game;
+
+            Color[] az = Enumerable.Range(0, 1).Select(i => Color.Red).ToArray();
+            collisionBoxTexture = game.textureHandler.colorTexture;
+            collisionBoxTexture.SetData(az);
+
             this.position = position;
         }
 
@@ -62,6 +71,13 @@ namespace UTDG_SB.Entities
             else
                 spriteBatch.Draw(texture, bounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, depth);
 
+            if (game.devMode)
+            {
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, collisionBounds.Width, 2), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X + collisionBounds.Width - 2, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y + collisionBounds.Height - 2, collisionBounds.Width, 2), Color.Red);
+                spriteBatch.Draw(collisionBoxTexture, new Rectangle(collisionBounds.X, collisionBounds.Y, 2, collisionBounds.Height), Color.Red);
+            }
         }
     }
 }

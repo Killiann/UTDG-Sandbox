@@ -10,6 +10,7 @@ namespace UTDG_SB.Map
 {
     public class TileMap
     {
+        private Main game;
         private Texture2D tileMap;
         private Texture2D collisionTexture;
         public int mapW = 11, mapH = 11, tileWidth = 32;
@@ -18,10 +19,10 @@ namespace UTDG_SB.Map
              15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 16,
              15, 1, 5, 5, 5, 5, 5, 5, 5, 4, 16,
              15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 6, 6, 16,
              15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
              15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 6, 6, 16,
+             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
+             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
              15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
              15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
              11, 14, 13, 13, 13, 13, 13, 13, 13, 13, 10 };
@@ -32,10 +33,10 @@ namespace UTDG_SB.Map
             1,1,1,1,1,1,1,1,1,1,1,
             1,0,0,0,0,0,0,0,0,0,1,
             1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,1,1,1,
             1,0,0,0,0,0,0,0,0,0,1,
             1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,1,1,1,
+            1,0,0,0,0,0,0,0,0,0,1,
+            1,0,0,0,0,0,0,0,0,0,1,
             1,0,0,0,0,0,0,0,0,0,1,
             1,0,0,0,0,0,0,0,0,0,1,
             1,0,0,0,0,0,0,0,0,0,1,
@@ -57,12 +58,13 @@ namespace UTDG_SB.Map
             9,1,1,1,1,1,1,1,1,1,9            
         };
 
-        public TileMap(Texture2D tileTexture, Texture2D collisionTexture)
+        public TileMap(Main game)
         {
-            tileMap = tileTexture;
+            this.game = game;
+            tileMap = game.textureHandler.tileMapTexture;
             Color[] az = Enumerable.Range(0, 1).Select(i => Color.Blue).ToArray();
-            this.collisionTexture = collisionTexture;
-            this.collisionTexture.SetData(az);
+            collisionTexture = game.textureHandler.colorTexture;
+            collisionTexture.SetData(az);
         }                        
 
         public void Draw(SpriteBatch spriteBatch)
@@ -88,16 +90,19 @@ namespace UTDG_SB.Map
                 }
             }
 
-            ////draw collidable bounds
-            //for (int i = 0; i < collisionMap.Length; i++)
-            //{
-            //    if (collisionMap[i] == 1)
-            //    {
-            //        int y = (i / mapW) * tileWidth;
-            //        int x = (i % mapW) * tileWidth;
-            //        spriteBatch.Draw(collisionTexture, new Rectangle(x, y, tileWidth, tileWidth), Color.White * 0.5f);
-            //    }
-            //}
+            //draw collidable bounds
+            if (game.devMode)
+            {
+                for (int i = 0; i < collisionMap.Length; i++)
+                {
+                    if (collisionMap[i] == 1)
+                    {
+                        int y = (i / mapW) * tileWidth;
+                        int x = (i % mapW) * tileWidth;
+                        spriteBatch.Draw(collisionTexture, new Rectangle(x, y, tileWidth, tileWidth), Color.White * 0.5f);
+                    }
+                }
+            }
         }
     }
 }

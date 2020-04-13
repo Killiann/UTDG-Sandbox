@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/dungeontiles.png","C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/bin/Windows/Content/images/dungeontiles.xnb","TextureProcessor","Texture2DContent",1332,18517,0.3941017
+"C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/player.png","C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/bin/Windows/Content/images/player.xnb","TextureProcessor","Texture2DContent",308,1109,0.0069962
+"C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/testdummy.png","C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/bin/Windows/Content/images/testdummy.xnb","TextureProcessor","Texture2DContent",325,1109,0.0059966
