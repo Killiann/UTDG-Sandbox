@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/fonts/devFont.spritefont</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/console_bg.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/console_selected_bg.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/cursor.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/dungeontiles.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player_idle.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player_walk.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player_walk_up.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/testdummy.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/testdummy_hit.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

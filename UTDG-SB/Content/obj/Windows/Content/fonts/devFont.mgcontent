@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/fonts/devFont.spritefont</SourceFile>
+  <SourceTime>2020-04-12T12:43:23.0677371+04:00</SourceTime>
+  <DestFile>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/bin/Windows/Content/fonts/devFont.xnb</DestFile>
+  <DestTime>2020-04-12T12:43:28.7903765+04:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2018-12-08T20:35:54+04:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2018-12-08T20:35:54+04:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

@@ -44,3 +44,14 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.csproj.CopyComplete
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.exe
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.pdb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\dungeontiles.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\player.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\testdummy.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\player_walk.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\player_idle.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\player_walk_up.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\cursor.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\testdummy_hit.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\console_bg.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\fonts\devFont.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\console_selected_bg.xnb
