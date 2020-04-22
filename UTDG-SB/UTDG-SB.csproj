@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dev\DevConsole.cs" />
+    <Compile Include="Entities\Chest.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\TrainingDummy.cs" />
     <Compile Include="Main.cs" />

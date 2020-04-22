@@ -8,10 +8,13 @@ namespace UTDG_SB_Editor.TileEdit
 {
     class TileMap
     {
+        private int width;
+        private int height;
+        private int tileSize;
 
         public TileMap(MG_Main game, int width, int height)
         {
 
-        }
+        }        
     }
 }

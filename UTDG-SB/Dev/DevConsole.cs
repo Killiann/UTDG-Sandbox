@@ -91,7 +91,11 @@ namespace UTDG_SB.Dev
                     string baseCmd = leftHand.Split('.')[0];
                     string actionCmd = leftHand.Split('.')[1];
 
-                    if(leftHand.ToLower() == "dev.mode")
+                    if (leftHand.ToLower() == "camera.scale")
+                    {
+                        game.camera.scale = rightHandVal;
+                    }
+                    if (leftHand.ToLower() == "dev.mode")
                     {
                         if (rightHandVal == 1)
                         {
@@ -102,14 +106,16 @@ namespace UTDG_SB.Dev
                         {
                             game.devMode = false;
                             ExcecutedCommands.Add("Devmode turned off.");
-                        }else
+                        }
+                        else
                             ExcecutedCommands.Add("invalid devmode value. try 1 or 0.");
                     }
-                    if(leftHand.ToLower() == "player.maxvel")
+                    if (leftHand.ToLower() == "player.maxvel")
                     {
                         game.player.physicsHandler.maxVelocity = rightHandVal;
                         ExcecutedCommands.Add("Player Max Velocity set to " + rightHandVal + ".");
-                    }else if(leftHand.ToLower() == "player.acceleration")
+                    }
+                    else if (leftHand.ToLower() == "player.acceleration")
                     {
                         game.player.physicsHandler.accelerationValue = rightHandVal;
                         ExcecutedCommands.Add("Player Acceleration Value set to " + rightHandVal + ".");
@@ -119,7 +125,14 @@ namespace UTDG_SB.Dev
                 {
                     ExcecutedCommands.Add("This command was invalid.");
                 }
-            }        
+            }
+            else
+            {
+                if (command.ToLower().Contains("content.reload"))
+                {
+                    game.ReloadContent();
+                }
+            }
         }
 
         public void HandleInput(TextInputEventArgs e)

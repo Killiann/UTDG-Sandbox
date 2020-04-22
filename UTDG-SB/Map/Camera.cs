@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace UTDG_SB.Map
 {
-    class Camera
+    public class Camera
     {
         private Vector2 position;
-        private float scale = 1.1f;
+        public float scale = 1.1f;
         private int viewportWidth;
         private int viewportHeight;
         public Vector2 VPCenter { get { return new Vector2(viewportWidth * 0.5f, viewportHeight * 0.5f); } }

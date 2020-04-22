@@ -54,3 +54,8 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\console_bg.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\fonts\devFont.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\console_selected_bg.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\obj\x86\Debug\UTDG-SB.csprojAssemblyReference.cache
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\crate.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\chest.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\chest_open.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\torch.xnb

@@ -5,8 +5,11 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/fonts/devFont.spritefont</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/chest.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/chest_open.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/console_bg.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/console_selected_bg.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/crate.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/cursor.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/dungeontiles.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player.png</File>
@@ -15,8 +18,13 @@
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/player_walk_up.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/testdummy.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/testdummy_hit.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB/Content/images/torch.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

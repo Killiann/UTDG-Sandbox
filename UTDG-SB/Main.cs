@@ -16,7 +16,7 @@ namespace UTDG_SB
         public TextureHandler textureHandler;
         public FontHandler fontHandler;
         public TileMap map;
-        Camera camera;
+        public Camera camera;
         public Player player;
         public TrainingDummy trainingDummy;
 
@@ -28,6 +28,18 @@ namespace UTDG_SB
 
         Texture2D cursorTexture;
         Vector2 cursorPosition;
+
+        Texture2D tempCrate;
+        Rectangle tempCrateRect;
+
+        Chest tempChest;
+
+        //temp torch
+        Texture2D torchTexture;
+        Rectangle torchRect;
+        int currentFrame = 0;
+        int frameRate = 5;
+        int currentFrameTime = 0;
 
         public Main()
         {
@@ -41,7 +53,7 @@ namespace UTDG_SB
 
             graphics.PreferredBackBufferHeight = 450;
             textureHandler = new TextureHandler();
-            fontHandler = new FontHandler();
+            fontHandler = new FontHandler();           
         }       
 
         protected override void Initialize()
@@ -51,8 +63,12 @@ namespace UTDG_SB
             camera = new Camera(GraphicsDevice.Viewport);
             camera.SetPosition(new Vector2(160, 160));
             player = new Player(this);
-            trainingDummy = new TrainingDummy(this, new Vector2(160, 96));
+            trainingDummy = new TrainingDummy(this, new Vector2(128, 64));
             devConsole = new DevConsole(this);
+
+            tempCrateRect = new Rectangle(64, 64, 32, 32);
+            torchRect = new Rectangle(64, 32, 32, 32);
+            tempChest = new Chest(this);
         }
 
         protected override void LoadContent()
@@ -60,6 +76,15 @@ namespace UTDG_SB
             spriteBatch = new SpriteBatch(GraphicsDevice);
             textureHandler.LoadContent(this);
             fontHandler.LoadContent(this);
+
+            tempCrate = Content.Load<Texture2D>("images/crate");
+            torchTexture = Content.Load<Texture2D>("images/torch");
+        }
+
+        public void ReloadContent()
+        {
+            Content.Unload();
+            LoadContent();
         }
 
         //screen resize
@@ -87,12 +112,21 @@ namespace UTDG_SB
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
             //dev log
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.F1) && prevKeyboard.IsKeyUp(Keys.F1))
                 if (devConsole.IsOpen())
                     devConsole.Close();
                 else devConsole.Open();
+
+            if(keyboard.IsKeyDown(Keys.C) && prevKeyboard.IsKeyUp(Keys.C))
+            {
+                if (tempChest.IsOpen())
+                    tempChest.Close();
+                else if (!tempChest.IsOpen())
+                    tempChest.Open();
+            }
 
             devConsole.Update();
             //input-mouse
@@ -114,7 +148,19 @@ namespace UTDG_SB
                     trainingDummy.depth = 0.4f;
                 else trainingDummy.depth = 0.7f;
             }
-        
+
+            if (currentFrameTime > frameRate)
+            {
+                if (currentFrame < (torchTexture.Width / 16) - 1)
+                    currentFrame++;
+                else currentFrame = 0;
+
+                currentFrameTime = 0;
+            }
+            else currentFrameTime++;
+
+            tempChest.Update();
+            camera.SetPosition(player.GetPosition());
             prevMouse = mouse;
             prevKeyboard = keyboard;
         }
@@ -127,6 +173,12 @@ namespace UTDG_SB
             map.Draw(spriteBatch);
             trainingDummy.Draw(spriteBatch);
             player.Draw(spriteBatch);
+
+            spriteBatch.Draw(tempCrate, tempCrateRect, Color.White);
+            tempChest.Draw(spriteBatch);
+
+            spriteBatch.Draw(torchTexture, torchRect, new Rectangle(currentFrame * 16, 0, 16, 16) ,Color.White);
+            spriteBatch.Draw(torchTexture, new Rectangle(160, 32, 32, 32) , new Rectangle(currentFrame * 16, 0, 16, 16), Color.White);
 
             spriteBatch.Draw(textureHandler.cursorTexture, new Rectangle((int)cursorPosition.X, (int)cursorPosition.Y, 8, 8), Color.White);
             spriteBatch.End();

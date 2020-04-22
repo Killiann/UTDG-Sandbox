@@ -19,7 +19,6 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Sharp
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\SharpDX.Direct2D1.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\SharpDX.XInput.xml
-C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.Main.resources
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.Properties.Resources.resources
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-SB Editor.csproj.GenerateResource.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-SB Editor.csproj.CoreCompileInputs.cache
@@ -30,3 +29,7 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Conte
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\player.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\testdummy.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-SB Editor.csprojAssemblyReference.cache
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.MainForm.resources
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\collisionMap.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\depthMap.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.AddXToAllTilemap.resources

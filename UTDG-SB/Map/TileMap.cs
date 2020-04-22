@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,50 +14,10 @@ namespace UTDG_SB.Map
         private Main game;
         private Texture2D tileMap;
         private Texture2D collisionTexture;
-        public int mapW = 11, mapH = 11, tileWidth = 32;
-        public int[] tempMapLayout = new int[] {
-             12, 7, 7, 7, 7, 7, 7, 7, 7, 8, 9,
-             15, 6, 6, 6, 6, 6, 6, 6, 6, 6, 16,
-             15, 1, 5, 5, 5, 5, 5, 5, 5, 4, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             15, 2, 0, 0, 0, 0, 0, 0, 0, 3, 16,
-             11, 14, 13, 13, 13, 13, 13, 13, 13, 13, 10 };
-
-        public int[] collisionMap = new int[]
-        {
-            1,1,1,1,1,1,1,1,1,1,1,
-            1,1,1,1,1,1,1,1,1,1,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,0,0,0,0,0,0,0,0,0,1,
-            1,1,1,1,1,1,1,1,1,1,1
-        };
-
-        public int[] depthMap = new int[]
-        {
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,9,9,9,9,9,9,9,9,9,9,
-            9,1,1,1,1,1,1,1,1,1,9            
-        };
+        public int mapW, mapH, tileWidth = 32;
+        public int[] tempMapLayout;
+        public int[] collisionMap;
+        public int[] depthMap;
 
         public TileMap(Main game)
         {
@@ -65,7 +26,25 @@ namespace UTDG_SB.Map
             Color[] az = Enumerable.Range(0, 1).Select(i => Color.Blue).ToArray();
             collisionTexture = game.textureHandler.colorTexture;
             collisionTexture.SetData(az);
+            LoadMap();
         }                        
+
+        private void LoadMap()
+        {
+            string text = File.ReadAllText("map.txt");
+            string[] split = text.Split('#');
+            mapW = Convert.ToInt32(split[0].Split(',')[0]);
+            mapH = Convert.ToInt32(split[0].Split(',')[0]);
+
+            tempMapLayout = new int[mapW * mapH];
+            collisionMap = new int[mapW * mapH];
+            depthMap = new int[mapW * mapH];
+
+            string[] tileMapTest = split[1].Split(',');
+            tempMapLayout = Array.ConvertAll(split[1].Split(','), int.Parse);
+            collisionMap = Array.ConvertAll(split[2].Split(','), int.Parse);
+            depthMap = Array.ConvertAll(split[3].Split(','), int.Parse);
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -75,7 +54,7 @@ namespace UTDG_SB.Map
             {
                 for(int x = 0; x < 30; x++)
                 {
-                    spriteBatch.Draw(tileMap, new Rectangle(startPos + (x * tileWidth), startPos + (y * tileWidth), tileWidth, tileWidth), new Rectangle(17 * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.99f);
+                    spriteBatch.Draw(tileMap, new Rectangle(startPos + (x * tileWidth), startPos + (y * tileWidth), tileWidth, tileWidth), new Rectangle(((tileMap.Width / 16) -1) * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.99f);
                 }
             }
 
@@ -85,7 +64,7 @@ namespace UTDG_SB.Map
             {
                 for(int x=0; x < mapH; x++)
                 {
-                    spriteBatch.Draw(tileMap, new Rectangle(x * tileWidth, y * tileWidth, tileWidth, tileWidth), new Rectangle(tempMapLayout[currentTile] * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, (float)depthMap[currentTile] / 10f);
+                    spriteBatch.Draw(tileMap, new Rectangle(x * tileWidth, y * tileWidth, tileWidth, tileWidth), new Rectangle(tempMapLayout[currentTile] * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, (depthMap[currentTile] == 0? 9 : 1) / 10f);
                     currentTile++;
                 }
             }

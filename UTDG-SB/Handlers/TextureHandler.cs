@@ -22,6 +22,8 @@ namespace UTDG_SB.Handlers
         public Texture2D consoleBG;
         public Texture2D consoleSelectedBG;
 
+        public Texture2D chestOpening;
+
         public Texture2D cursorTexture;
 
         public void LoadContent(Microsoft.Xna.Framework.Game game)
@@ -34,6 +36,8 @@ namespace UTDG_SB.Handlers
             trainingDummyTexture = game.Content.Load<Texture2D>("images/testdummy");
             trainingDummyHit = game.Content.Load<Texture2D>("images/testdummy_hit");
             cursorTexture = game.Content.Load<Texture2D>("images/cursor");
+
+            chestOpening = game.Content.Load<Texture2D>("images/chest_open");
 
             consoleBG = game.Content.Load<Texture2D>("images/console_bg");
             consoleSelectedBG = game.Content.Load<Texture2D>("images/console_selected_bg");
