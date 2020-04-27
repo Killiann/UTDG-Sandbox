@@ -12,6 +12,7 @@ namespace UTDG_SB.Entities
     {
         Vector2 position;
         Texture2D texture;
+        Texture2D itemTexture;
         private int closedFrame;
         private int openFrame;
 
@@ -22,10 +23,15 @@ namespace UTDG_SB.Entities
         private int frameTime = 2;
         private int currentTime = 0;
 
+        private int hoverAmount;
+        private int maxHover = 80;
+        private bool hoverUp = true;
+
         public bool IsOpen(){ return currentFrame == openFrame; }
 
         public Chest(Main game) {
             texture = game.textureHandler.chestOpening;
+            itemTexture = game.textureHandler.sword;
             closedFrame = 0;
             openFrame = (texture.Width / 16) - 1;
             position = new Vector2(96, 64);
@@ -79,11 +85,31 @@ namespace UTDG_SB.Entities
                     currentTime = 0;
                 }                    
             }
+
+            if (hoverUp)
+            {
+                if (hoverAmount < maxHover)
+                {
+                    hoverAmount++;
+                }
+                else hoverUp = false;
+            }else if(!hoverUp)
+            {
+                if (hoverAmount > 0)
+                {
+                    hoverAmount--;
+                }
+                else hoverUp = true;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), new Rectangle(currentFrame * 16, 0, 16, 16), Color.White);
+            if (IsOpen())
+            {
+                spriteBatch.Draw(itemTexture, new Rectangle((int)position.X, (int)position.Y - 16 - (hoverAmount / 10), 32, 32), Color.White);
+            }
         }
     }
 }

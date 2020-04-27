@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/DynamicEntities/Player/player_idle.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/DynamicEntities/Player/player_walk.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/DynamicEntities/Player/player_walk_up.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/TrainingDummy/testdummy.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/TrainingDummy/testdummy_hit.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/TileMaps/dungeontiles.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

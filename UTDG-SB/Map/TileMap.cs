@@ -54,7 +54,7 @@ namespace UTDG_SB.Map
             {
                 for(int x = 0; x < 30; x++)
                 {
-                    spriteBatch.Draw(tileMap, new Rectangle(startPos + (x * tileWidth), startPos + (y * tileWidth), tileWidth, tileWidth), new Rectangle(((tileMap.Width / 16) -1) * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.99f);
+                    spriteBatch.Draw(tileMap, new Rectangle(startPos + (x * tileWidth), startPos + (y * tileWidth), tileWidth, tileWidth), new Rectangle(((tileMap.Width / 16) -1) * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.05f);
                 }
             }
 

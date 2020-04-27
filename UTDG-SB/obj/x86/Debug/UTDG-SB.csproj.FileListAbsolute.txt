@@ -59,3 +59,4 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\chest.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\chest_open.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\torch.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB\bin\Windows\x86\Debug\Content\images\sword.xnb

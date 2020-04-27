@@ -23,6 +23,7 @@ namespace UTDG_SB.Handlers
         public Texture2D consoleSelectedBG;
 
         public Texture2D chestOpening;
+        public Texture2D sword;
 
         public Texture2D cursorTexture;
 
@@ -38,6 +39,7 @@ namespace UTDG_SB.Handlers
             cursorTexture = game.Content.Load<Texture2D>("images/cursor");
 
             chestOpening = game.Content.Load<Texture2D>("images/chest_open");
+            sword = game.Content.Load<Texture2D>("images/sword");
 
             consoleBG = game.Content.Load<Texture2D>("images/console_bg");
             consoleSelectedBG = game.Content.Load<Texture2D>("images/console_selected_bg");

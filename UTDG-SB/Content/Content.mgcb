@@ -152,6 +152,18 @@
 /processorParam:TextureFormat=Color
 /build:images/player_walk_up.png
 
+#begin images/sword.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/sword.png
+
 #begin images/testdummy.png
 /importer:TextureImporter
 /processor:TextureProcessor

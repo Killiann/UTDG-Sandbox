@@ -64,7 +64,7 @@ namespace UTDG_SB.Entities
             collisionBoxTexture = game.textureHandler.colorTexture;
             collisionBoxTexture.SetData(az);
 
-            position = new Vector2(160, 160);
+            position = new Vector2(166, 80);
             prevPos = position;
 
             this.texture = game.textureHandler.playerTexture;
