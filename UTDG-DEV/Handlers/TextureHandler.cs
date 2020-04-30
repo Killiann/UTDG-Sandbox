@@ -14,10 +14,21 @@ namespace UTDG_DEV.Handlers
         public Texture2D player_idle_copy;
         public Texture2D player_moveUp;
         public Texture2D player_moveX;
+        public Texture2D player_radius;
 
         //training dummy
         public Texture2D dummy_idle;
         public Texture2D dummy_hit;
+
+        //Lights
+        public Texture2D torch;
+
+        //Containers
+        public Texture2D chest;
+        public Texture2D chest_opening;
+
+        //UI
+        public Texture2D cursorTexture;
 
         //custom
         public Texture2D redTexture;
@@ -33,10 +44,27 @@ namespace UTDG_DEV.Handlers
             player_idle = game.Content.Load<Texture2D>("Art/DynamicEntities/Player/player_idle");
             player_moveUp = game.Content.Load<Texture2D>("Art/DynamicEntities/Player/player_walk_up");
             player_moveX = game.Content.Load<Texture2D>("Art/DynamicEntities/Player/player_walk");
+            player_radius = game.Content.Load<Texture2D>("Art/DynamicEntities/Player/player_radius");
+
+            Color[] radiusData = new Color[player_radius.Width * player_radius.Height];
+            player_radius.GetData(0, null, radiusData, 0, radiusData.Length);
+            for (int i = 0; i < radiusData.Length; i++)
+                if (radiusData[i] != Color.Transparent) radiusData[i] = Color.White * 0.01f;
+            player_radius.SetData(radiusData);
 
             //training dummy
             dummy_hit = game.Content.Load<Texture2D>("Art/Entities/TrainingDummy/testdummy_hit");
             dummy_idle = game.Content.Load<Texture2D>("Art/Entities/TrainingDummy/testdummy");
+
+            //lights
+            torch = game.Content.Load<Texture2D>("Art/Entities/Lights/torch");
+
+            //containers
+            chest = game.Content.Load<Texture2D>("Art/Entities/Containers/chest");
+            chest_opening = game.Content.Load<Texture2D>("Art/Entities/Containers/chest_open");
+
+            //UI
+            cursorTexture = game.Content.Load<Texture2D>("Art/UI/cursor");
 
             //custom
             redTexture = new Texture2D(game.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);

@@ -11,14 +11,18 @@ namespace UTDG_DEV
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public TextureHandler textureHandler;
+        MouseInputHandler mouseInputHandler;
 
         public readonly int TileSize = 32;
 
-        public Scene tempScene;
+        public Scene currentScene;
 
         public Main()
-        {
-            graphics = new GraphicsDeviceManager(this);
+        {                     
+            graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8
+            };
             Content.RootDirectory = "Content";
         }
         
@@ -26,9 +30,10 @@ namespace UTDG_DEV
         {
             textureHandler = new TextureHandler();
             base.Initialize();
-            tempScene = new Scene(this);
-        }        
-        
+            currentScene = new Scene(this);
+            mouseInputHandler = new MouseInputHandler(this);
+        }
+
         protected override void LoadContent()
         {         
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -42,14 +47,16 @@ namespace UTDG_DEV
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            tempScene.Update();
+            mouseInputHandler.Update();
+            currentScene.Update();
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            tempScene.Draw(graphics, spriteBatch);
+            currentScene.Draw(graphics, spriteBatch);
+            mouseInputHandler.Draw(spriteBatch);
             
             base.Draw(gameTime);
         }

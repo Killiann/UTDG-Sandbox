@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,11 +16,9 @@ namespace UTDG_DEV.Scene_Objects
         public Map map;
         public Texture2D mapMask;
 
-        private Camera camera;
+        public Camera camera;
         public Main game;
         public Player player;        
-
-        private Texture2D cursor;
 
         public List<Entity> LiveEntities;
 
@@ -32,9 +31,11 @@ namespace UTDG_DEV.Scene_Objects
             player = new Player(this, new Vector2(128, 128));
 
             LiveEntities = new List<Entity>();
-            LiveEntities.Add(player);
+            LiveEntities.Add(player);        
 
 
+            //=================================TEMP====================================
+            //temp loading of training dummys
             Random rnd = new Random();
             for(int i = 0; i < 5; i++)
             {
@@ -49,6 +50,18 @@ namespace UTDG_DEV.Scene_Objects
                 LiveEntities.Add(dummy);
             }
 
+            //temporary single entities for testing
+            Torch torch = new Torch(this, new Vector2(64, 32), 7);
+            Torch torch2 = new Torch(this, new Vector2(160, 32), 8);
+            Torch torch3 = new Torch(this, new Vector2(64, 128), 9);
+            Chest chest = new Chest(this, new Vector2(128, 64), 10);
+            LiveEntities.Add(torch);
+            LiveEntities.Add(torch2);
+            LiveEntities.Add(torch3);
+            LiveEntities.Add(chest);
+            //=================================TEMP====================================
+
+            //setup mask for the map
             mapMask = new Texture2D(game.GraphicsDevice, (int)map.GetMapDimensions().X, (int)map.GetMapDimensions().X);
             Color[] Data = new Color[mapMask.Width * mapMask.Height];
             int[] depth = map.GetDepthMap();
@@ -58,7 +71,7 @@ namespace UTDG_DEV.Scene_Objects
                 int y = i / (int)map.GetMapDimensions().X;
                 if (map.GetDepthMap()[i] == 1)
                 {
-                    Data[(y * (int)map.GetMapDimensions().X) + x] = Color.White * 0.01f;
+                    Data[(y * (int)map.GetMapDimensions().X) + x] = Color.White * 0.005f;
                 }
                 else Data[(y * (int)map.GetMapDimensions().X) + x] = Color.Transparent;
             }
@@ -93,7 +106,7 @@ namespace UTDG_DEV.Scene_Objects
         }
 
         public void Update()
-        {
+        {            
             player.Update();
             camera.SetPosition(player.GetOrigin());
         }
@@ -112,7 +125,8 @@ namespace UTDG_DEV.Scene_Objects
                 Projection = m,
                 View = camera.TranslationMatrix
             };
-            var s1 = new DepthStencilState
+
+            var s1 = new DepthStencilState //radius mask
             {
                 StencilEnable = true,
                 StencilFunction = CompareFunction.Always,
@@ -120,7 +134,16 @@ namespace UTDG_DEV.Scene_Objects
                 ReferenceStencil = 1,
                 DepthBufferEnable = false,
             };
-            var s2 = new DepthStencilState
+            //var s2 = new DepthStencilState //behind wall mask
+            //{
+            //    StencilEnable = true,
+            //    StencilFunction = CompareFunction.NotEqual,
+            //    //StencilPass = StencilOperation.Replace,
+            //    StencilFail = StencilOperation.Replace,
+            //    ReferenceStencil = 0,
+            //    DepthBufferEnable = false
+            //};
+            var s3 = new DepthStencilState //rendering texture
             {
                 StencilEnable = true,
                 StencilFunction = CompareFunction.LessEqual,
@@ -133,19 +156,26 @@ namespace UTDG_DEV.Scene_Objects
             spriteBatch.Begin(SpriteSortMode.FrontToBack, null, SamplerState.PointClamp, null, null, null, camera.TranslationMatrix);
             map.Draw(spriteBatch);
             foreach (Entity entity in LiveEntities)            
-                entity.Draw(spriteBatch);            
+                entity.Draw(spriteBatch);
             spriteBatch.End();
+
+            Color spritecol = Color.White * 0.01f;
+
+            ////radius of view around sprite
+            //spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, s1, null, a);
+            //spriteBatch.Draw(game.textureHandler.player_radius, new Rectangle((int)player.GetPosition().X + 8, (int)player.GetPosition().Y + 8, game.textureHandler.player_radius.Width, game.textureHandler.player_radius.Height), null, spritecol, 0f, new Vector2(game.textureHandler.player_radius.Width / 2, game.textureHandler.player_radius.Height / 2), SpriteEffects.None, 0f); //The mask                                   
+            //spriteBatch.End();
 
             //behind the wall mask
             spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, s1, null, a);
-            spriteBatch.Draw(mapMask, new Rectangle(0, 0, mapMask.Width * game.TileSize, mapMask.Height * game.TileSize), Color.White); //The mask                                   
+            spriteBatch.Draw(mapMask, new Rectangle(0, 0, mapMask.Width * game.TileSize, mapMask.Height * game.TileSize), Color.White); //The mask  
             spriteBatch.End();
-
+           
             //behind the wall textures
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, s2, null, a);
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointClamp, s3, null, a);
             foreach (Entity entity in LiveEntities)
                 entity.DrawBehindWalls(spriteBatch);
-            spriteBatch.End();            
+            spriteBatch.End();
         }
     }
 }

@@ -53,13 +53,16 @@ namespace UTDG_DEV.Handlers
 
             for (int i = 0; i < scene.LiveEntities.Count; i++)
             {
-                Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
-                if (entityCollision.Intersects(xBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                if (scene.LiveEntities[i] is CollidableEntity)
                 {
-                    float intersectionDepth = GetHorzDepth(xBounds, entityCollision);
-                    xBounds.X += (int)intersectionDepth;
-                    entity.SetXPosition(xBounds.X);
-                    entity.velocity.X = 0;
+                    Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
+                    if (entityCollision.Intersects(xBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                    {
+                        float intersectionDepth = GetHorzDepth(xBounds, entityCollision);
+                        xBounds.X += (int)intersectionDepth;
+                        entity.SetXPosition(xBounds.X);
+                        entity.velocity.X = 0;
+                    }
                 }
             }
 
@@ -85,13 +88,16 @@ namespace UTDG_DEV.Handlers
             //other entities
             for (int i = 0; i < scene.LiveEntities.Count; i++)
             {
-                Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
-                if (entityCollision.Intersects(yBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                if (scene.LiveEntities[i] is CollidableEntity)
                 {
-                    float intersectionDepth = GetVertDepth(yBounds, entityCollision);
-                    yBounds.Y += (int)intersectionDepth;
-                    entity.SetYPosition(yBounds.Y);
-                    entity.velocity.Y = 0;
+                    Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
+                    if (entityCollision.Intersects(yBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                    {
+                        float intersectionDepth = GetVertDepth(yBounds, entityCollision);
+                        yBounds.Y += (int)intersectionDepth;
+                        entity.SetYPosition(yBounds.Y);
+                        entity.velocity.Y = 0;
+                    }
                 }
             }
         }

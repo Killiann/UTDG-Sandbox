@@ -10,6 +10,16 @@ namespace UTDG_DEV.Scene_Objects.Entities
 {
     public class Entity
     {
+        public enum EntityType
+        {
+            Base,
+            Collidable,
+            SingleAnimation,
+            Dynamic
+        }
+
+        protected EntityType entityType = EntityType.Base;
+
         protected int id;
         protected Vector2 position;
         protected Rectangle renderBounds;
@@ -18,14 +28,15 @@ namespace UTDG_DEV.Scene_Objects.Entities
         public virtual Vector2 GetPosition() { return position; }       
         public virtual void SetXPosition(float newPos) { position.X = newPos; }
         public virtual void SetYPosition(float newPos) { position.Y = newPos; }
-        public virtual Rectangle RenderBounds() { return renderBounds; }
+        public virtual Rectangle RenderBounds() { return new Rectangle((int)position.X, (int)position.Y, 32, 32); }
 
         public virtual void Draw(SpriteBatch spriteBatch) { }
         public virtual void DrawBehindWalls(SpriteBatch spriteBatch) { }
+        public EntityType GetEntityType() { return entityType; }
     }
 
     public class CollidableEntity : Entity
-    {
+    {        
         protected Vector2 offset;
         protected Rectangle collisionBounds;
         public virtual Rectangle CollisionBounds() { return collisionBounds; }

@@ -27,3 +27,8 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DE
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.pdb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\TrainingDummy\testdummy.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\TrainingDummy\testdummy_hit.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\UI\cursor.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\DynamicEntities\Player\player_radius.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Lights\torch.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Containers\chest.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Containers\chest_open.xnb

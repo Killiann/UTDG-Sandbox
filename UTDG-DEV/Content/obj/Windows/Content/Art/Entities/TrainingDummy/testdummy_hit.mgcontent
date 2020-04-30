@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/TrainingDummy/testdummy_hit.png</SourceFile>
-  <SourceTime>2020-04-07T16:37:21.4088383+04:00</SourceTime>
+  <SourceTime>2020-04-28T11:42:52.3434889+04:00</SourceTime>
   <DestFile>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/bin/Windows/Content/Art/Entities/TrainingDummy/testdummy_hit.xnb</DestFile>
-  <DestTime>2020-04-25T16:44:14.2389272+04:00</DestTime>
+  <DestTime>2020-04-28T11:43:07.6724444+04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T20:35:54+04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

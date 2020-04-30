@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace UTDG_DEV.Scene_Objects
 {
-    class Camera
+    public class Camera
     {
         private Vector2 position;
         public float scale = 2.0f;

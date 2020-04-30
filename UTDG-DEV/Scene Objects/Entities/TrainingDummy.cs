@@ -15,7 +15,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
         public override Rectangle RenderBounds() { return new Rectangle((int)position.X - (int)offset.X, (int)position.Y - (int)offset.Y, 32, 32); }
         public override Rectangle CollisionBounds() { return new Rectangle((int)position.X, (int)position.Y, 20, 16); }
         private float Depth() { return scene.player.GetPosition().Y < position.Y ? 0.6f : 0.4f; }
-        private AnimationHandler animationHandler;
+        private SingleAnimationHandler animationHandler;
 
         public TrainingDummy(Scene scene, Vector2 position, int id)
         {
@@ -24,9 +24,14 @@ namespace UTDG_DEV.Scene_Objects.Entities
             this.position = position += offset;
             this.id = id;
             
-            animationHandler = new SingleAnimationHandler(scene.game, scene.game.textureHandler.dummy_idle, null, scene.game.textureHandler.dummy_hit); ;
+            animationHandler = new SingleAnimationHandler(scene.game, scene.game.textureHandler.dummy_idle, null, scene.game.textureHandler.dummy_hit, 3); 
+            entityType = EntityType.SingleAnimation;
         }
 
+        public void Hit()
+        {
+            animationHandler.RunAnimation();
+        }
         public override void Draw(SpriteBatch spriteBatch)
         {
             animationHandler.Draw(this, spriteBatch, Depth());

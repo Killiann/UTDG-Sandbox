@@ -36,7 +36,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
             inputHandler = new PlayerInputHandler();
             physicsHandler = new PhysicsHandler();
             collisionHandler = new CollisionHandler(scene);
-            animationHandler = new DynamicAnimationHandler(scene.game, scene.game.textureHandler.player_idle, null, scene.game.textureHandler.player_moveX, scene.game.textureHandler.player_moveUp);
+            animationHandler = new DynamicAnimationHandler(scene.game, scene.game.textureHandler.player_idle, 20, scene.game.textureHandler.player_moveX, null, scene.game.textureHandler.player_moveUp, null);
         }
 
         public override Rectangle CollisionBounds(){ return new Rectangle((int)position.X, (int)position.Y, 20, 16); }
