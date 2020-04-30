@@ -33,3 +33,4 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\collisionMap.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\depthMap.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.AddXToAllTilemap.resources
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\entityMap.xnb

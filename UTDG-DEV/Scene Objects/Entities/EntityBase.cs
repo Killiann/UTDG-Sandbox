@@ -30,6 +30,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
         public virtual void SetYPosition(float newPos) { position.Y = newPos; }
         public virtual Rectangle RenderBounds() { return new Rectangle((int)position.X, (int)position.Y, 32, 32); }
 
+        public virtual void Update() { }
         public virtual void Draw(SpriteBatch spriteBatch) { }
         public virtual void DrawBehindWalls(SpriteBatch spriteBatch) { }
         public EntityType GetEntityType() { return entityType; }

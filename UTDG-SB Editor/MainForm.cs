@@ -97,6 +97,14 @@ namespace UTDG_SB_Editor
             collisionToolStripMenuItem.Checked = false;
             depthToolStripMenuItem.Checked = true;
         }
+        private void entityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MG_window.currentLayer = MG_Main.Layers.Entity;
+            tileSelect1.ChangeLayer(TileSelect.Layers.Entity);
+            tileMapToolStripMenuItem.Checked = false;
+            collisionToolStripMenuItem.Checked = false;
+            depthToolStripMenuItem.Checked = true;
+        }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,6 +139,6 @@ namespace UTDG_SB_Editor
             MG_window.AddXToAll(x);
             xToTMForm.Hide();
             this.Focus();
-        }
+        }        
     }
 }

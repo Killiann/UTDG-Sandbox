@@ -25,7 +25,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
             position = SpawnPos;
             offset = new Vector2(6, 16);
             position += offset;
-            id = 0;
+            id = 1;
 
             this.scene = scene;
             tempTexture = scene.game.textureHandler.redTexture;
@@ -43,7 +43,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
         public override Rectangle RenderBounds() { return new Rectangle((int)position.X - (int)offset.X, (int)position.Y - (int)offset.Y, 32, 32); }
         public Vector2 GetOrigin() { return new Vector2(position.X + 16, position.Y + 16); }
 
-        public void Update()
+        public override void Update()        
         {
             inputHandler.Update(this);
             physicsHandler.Update(this);

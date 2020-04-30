@@ -12,6 +12,7 @@ namespace UTDG_SB_Editor.Handlers
 
         public Texture2D collisionMap;
         public Texture2D depthMap;
+        public Texture2D entityMap;
 
         public Texture2D colorTexture;
 
@@ -23,6 +24,7 @@ namespace UTDG_SB_Editor.Handlers
 
             collisionMap = main.Editor.Content.Load<Texture2D>("images/collisionMap");
             depthMap = main.Editor.Content.Load<Texture2D>("images/depthMap");
+            entityMap = main.Editor.Content.Load<Texture2D>("images/entityMap");
 
             colorTexture = new Texture2D(main.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
         }

@@ -17,7 +17,8 @@ namespace UTDG_SB_Editor
         {
             Tilemap,
             Collision,
-            Depth
+            Depth,
+            Entity
         }
         public Layers currentLayer = Layers.Tilemap;
 
@@ -32,6 +33,7 @@ namespace UTDG_SB_Editor
         private Texture2D tileTexture;
         private Texture2D collisionTexture;
         private Texture2D depthTexture;
+        private Texture2D entityTexture;
 
         private Rectangle currentBounds;
 
@@ -41,6 +43,7 @@ namespace UTDG_SB_Editor
         int[] tileMap;
         int[] collisionMap;
         int[] depthMap;
+        int[] entityMap;
 
         int currentTileId = 0;
 
@@ -73,6 +76,8 @@ namespace UTDG_SB_Editor
             collisionTexture = textureHandler.collisionMap;
             depthTexture = textureHandler.depthMap;
             tileTexture = textureHandler.tileMapTexture;
+            entityTexture = textureHandler.entityMap;
+
             camera = new Camera(Editor.graphics.Viewport);
 
             form = (MainForm)FindForm();            
@@ -80,6 +85,7 @@ namespace UTDG_SB_Editor
             tileMap = new int[tmWidth * tmHeight];
             collisionMap = new int[tmWidth * tmHeight];
             depthMap = new int[tmWidth * tmHeight];
+            entityMap = new int[tmWidth * tmHeight];
 
             tileMapEditHandler = new UndoRedoHandler(tileMap);
             tileMapEditHandler.AddIteration(tileMap);
@@ -169,6 +175,9 @@ namespace UTDG_SB_Editor
                     case Layers.Depth:
                         depthMap[currentTilePos] = currentTileId;
                         break;
+                    case Layers.Entity:
+                        entityMap[currentTilePos] = currentTileId;
+                        break;
                 }                
             }
         }
@@ -205,6 +214,14 @@ namespace UTDG_SB_Editor
                         file.Write(',');
                 }
                 file.Write('#');
+                //entity map
+                for (int i = 0; i < entityMap.Length; i++)
+                {
+                    file.Write(entityMap[i]);
+                    if (i != entityMap.Length - 1)
+                        file.Write(',');
+                }
+                file.Write('#');
             }
         }
 
@@ -218,11 +235,13 @@ namespace UTDG_SB_Editor
             tileMap = new int[tmWidth * tmHeight];
             collisionMap = new int[tmWidth * tmHeight];
             depthMap = new int[tmWidth * tmHeight];
+            entityMap = new int[tmWidth * tmHeight];
 
             string[] tileMapTest = split[1].Split(',');
             tileMap = Array.ConvertAll(split[1].Split(','), int.Parse);
             collisionMap = Array.ConvertAll(split[2].Split(','), int.Parse);
             depthMap = Array.ConvertAll(split[3].Split(','), int.Parse);
+            entityMap = Array.ConvertAll(split[4].Split(','), int.Parse);
 
             tileMapEditHandler = new UndoRedoHandler(tileMap);
             tileMapEditHandler.AddIteration(tileMap);
@@ -266,6 +285,14 @@ namespace UTDG_SB_Editor
                     int y = i / tmWidth;
                     Editor.spriteBatch.Draw(depthTexture, new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize), new Rectangle(depthMap[i] * 16, 0, 16, 16), Color.White * 0.3f);
                 }
+            } else if (currentLayer == Layers.Entity)
+            {
+                for (int i = 0; i < entityMap.Length; i++)
+                {
+                    int x = i % tmWidth;
+                    int y = i / tmWidth;
+                    Editor.spriteBatch.Draw(entityTexture, new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize), new Rectangle(entityMap[i] * 16, 0, 16, 16), Color.White);
+                }
             }
 
             if (IsMouseInsideControl)
@@ -275,6 +302,7 @@ namespace UTDG_SB_Editor
                     case Layers.Tilemap: Editor.spriteBatch.Draw(tileTexture, currentBounds, new Rectangle(currentTileId * 16, 0, 16, 16), Color.White * 0.8f); break;
                     case Layers.Collision: Editor.spriteBatch.Draw(collisionTexture, currentBounds, new Rectangle(currentTileId * 16, 0, 16, 16), Color.White * 0.8f); break;
                     case Layers.Depth: Editor.spriteBatch.Draw(depthTexture, currentBounds, new Rectangle(currentTileId * 16, 0, 16, 16), Color.White * 0.8f); break;
+                    case Layers.Entity: Editor.spriteBatch.Draw(entityTexture, currentBounds, new Rectangle(currentTileId * 16, 0, 16, 16), Color.White * 0.8f); break;
                 }                
                 Editor.spriteBatch.Draw(mouseIntersectTexture, new Rectangle(currentBounds.X, currentBounds.Y, currentBounds.Width, 2), Color.Red);
                 Editor.spriteBatch.Draw(mouseIntersectTexture, new Rectangle(currentBounds.X + currentBounds.Width - 2, currentBounds.Y, 2, currentBounds.Height), Color.Red);

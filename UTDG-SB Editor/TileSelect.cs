@@ -17,7 +17,8 @@ namespace UTDG_SB_Editor
         {
             Tilemap,
             Collision,
-            Depth
+            Depth,
+            Entity
         }
         private Layers currentLayer = Layers.Tilemap;
         
@@ -34,6 +35,7 @@ namespace UTDG_SB_Editor
         private Texture2D tileMap;
         private Texture2D collisionMap;
         private Texture2D depthMap;
+        private Texture2D entityMap; 
 
         private Rectangle currentBounds;
         private Rectangle selectedTileBounds;
@@ -59,6 +61,10 @@ namespace UTDG_SB_Editor
                     break;
                 case Layers.Depth:
                     currentTexture = depthMap;
+                    maxScrollVal = 0;
+                    break;
+                case Layers.Entity:
+                    currentTexture = entityMap;
                     maxScrollVal = 0;
                     break;
             }
@@ -92,6 +98,7 @@ namespace UTDG_SB_Editor
             tileMap = textureHandler.tileMapTexture;
             collisionMap = textureHandler.collisionMap;
             depthMap = textureHandler.depthMap;
+            entityMap = textureHandler.entityMap;
 
             currentTexture = tileMap;
 

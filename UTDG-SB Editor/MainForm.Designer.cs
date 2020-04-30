@@ -40,12 +40,13 @@
             this.tileMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.depthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tileSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToAllIndexesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tileSelect1 = new UTDG_SB_Editor.TileSelect();
             this.MG_window = new UTDG_SB_Editor.MG_Main();
-            this.tileSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToAllIndexesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +120,8 @@
             this.layerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tileMapToolStripMenuItem,
             this.collisionToolStripMenuItem,
-            this.depthToolStripMenuItem});
+            this.depthToolStripMenuItem,
+            this.entityToolStripMenuItem});
             this.layerToolStripMenuItem.Name = "layerToolStripMenuItem";
             this.layerToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.layerToolStripMenuItem.Text = "Layer";
@@ -127,23 +129,38 @@
             // tileMapToolStripMenuItem
             // 
             this.tileMapToolStripMenuItem.Name = "tileMapToolStripMenuItem";
-            this.tileMapToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.tileMapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tileMapToolStripMenuItem.Text = "TileMap";
             this.tileMapToolStripMenuItem.Click += new System.EventHandler(this.tileMapToolStripMenuItem_Click);
             // 
             // collisionToolStripMenuItem
             // 
             this.collisionToolStripMenuItem.Name = "collisionToolStripMenuItem";
-            this.collisionToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.collisionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.collisionToolStripMenuItem.Text = "Collision";
             this.collisionToolStripMenuItem.Click += new System.EventHandler(this.collisionToolStripMenuItem_Click);
             // 
             // depthToolStripMenuItem
             // 
             this.depthToolStripMenuItem.Name = "depthToolStripMenuItem";
-            this.depthToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.depthToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.depthToolStripMenuItem.Text = "Depth";
             this.depthToolStripMenuItem.Click += new System.EventHandler(this.depthToolStripMenuItem_Click);
+            // 
+            // tileSetToolStripMenuItem
+            // 
+            this.tileSetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToAllIndexesToolStripMenuItem});
+            this.tileSetToolStripMenuItem.Name = "tileSetToolStripMenuItem";
+            this.tileSetToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.tileSetToolStripMenuItem.Text = "TileSet";
+            // 
+            // addToAllIndexesToolStripMenuItem
+            // 
+            this.addToAllIndexesToolStripMenuItem.Name = "addToAllIndexesToolStripMenuItem";
+            this.addToAllIndexesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.addToAllIndexesToolStripMenuItem.Text = "Add to all indexes";
+            this.addToAllIndexesToolStripMenuItem.Click += new System.EventHandler(this.addToAllIndexesToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -168,20 +185,12 @@
             this.MG_window.TabIndex = 0;
             this.MG_window.Text = "mG_Main1";
             // 
-            // tileSetToolStripMenuItem
+            // entityToolStripMenuItem
             // 
-            this.tileSetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToAllIndexesToolStripMenuItem});
-            this.tileSetToolStripMenuItem.Name = "tileSetToolStripMenuItem";
-            this.tileSetToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.tileSetToolStripMenuItem.Text = "TileSet";
-            // 
-            // addToAllIndexesToolStripMenuItem
-            // 
-            this.addToAllIndexesToolStripMenuItem.Name = "addToAllIndexesToolStripMenuItem";
-            this.addToAllIndexesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addToAllIndexesToolStripMenuItem.Text = "Add to all indexes";
-            this.addToAllIndexesToolStripMenuItem.Click += new System.EventHandler(this.addToAllIndexesToolStripMenuItem_Click);
+            this.entityToolStripMenuItem.Name = "entityToolStripMenuItem";
+            this.entityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.entityToolStripMenuItem.Text = "Entity";
+            this.entityToolStripMenuItem.Click += new System.EventHandler(this.entityToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -221,6 +230,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem tileSetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToAllIndexesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entityToolStripMenuItem;
     }
 }
 

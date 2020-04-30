@@ -7,10 +7,12 @@
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/collisionMap.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/depthMap.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/dungeontiles.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/entityMap.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/player.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-SB Editor/Content/images/testdummy.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
