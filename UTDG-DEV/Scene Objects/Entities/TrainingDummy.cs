@@ -23,8 +23,8 @@ namespace UTDG_DEV.Scene_Objects.Entities
             offset = new Vector2(6, 16);
             this.position = position += offset;
             this.id = id;
-            
-            animationHandler = new SingleAnimationHandler(scene.game, scene.game.textureHandler.dummy_idle, null, scene.game.textureHandler.dummy_hit, 3); 
+
+            animationHandler = new SingleAnimationHandler(scene.game, scene.game.textureHandler.dummy_idle, null, null, scene.game.textureHandler.dummy_hit, 3);
             entityType = EntityType.SingleAnimation;
         }
 

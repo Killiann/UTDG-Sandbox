@@ -19,7 +19,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
             this.id = id;
             this.scene = scene;
             this.position = position;
-            animationHandler = new AnimationHandler(scene.game, scene.game.textureHandler.torch, 3);
+            animationHandler = new AnimationHandler(scene.game, scene.game.textureHandler.torch, 3, null);
         }
 
         public override void DrawBehindWalls(SpriteBatch spriteBatch)

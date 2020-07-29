@@ -10,7 +10,7 @@ using UTDG_DEV.Scene_Objects.Entities;
 
 namespace UTDG_DEV.Handlers
 {
-    class MouseInputHandler
+    public class MouseInputHandler
     {
         MouseState prevMouseState;
         MouseState mouse;
@@ -33,7 +33,7 @@ namespace UTDG_DEV.Handlers
         {
             mouse = Mouse.GetState();
 
-            Vector2 mousePos = game.currentScene.camera.ScreenToWorld(new Vector2(mouse.Position.X, mouse.Position.Y));
+            Vector2 mousePos = GetRealMousePos();
             cursorBounds.Location = new Point((int)mousePos.X, (int)mousePos.Y);
 
             if (mouse.LeftButton == ButtonState.Pressed && prevMouseState.LeftButton == ButtonState.Released)
@@ -52,6 +52,16 @@ namespace UTDG_DEV.Handlers
                 }
             }
             prevMouseState = mouse;
+        }
+
+        public Vector2 GetRealMousePos()
+        {
+            return game.currentScene.camera.ScreenToWorld(new Vector2(mouse.Position.X, mouse.Position.Y));
+        }
+
+        public bool IsLeftDown()
+        {
+            return mouse.LeftButton == ButtonState.Pressed;
         }
 
         public void Draw(SpriteBatch spriteBatch)

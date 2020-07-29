@@ -11,7 +11,7 @@ namespace UTDG_DEV
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public TextureHandler textureHandler;
-        MouseInputHandler mouseInputHandler;
+        public MouseInputHandler mouseInputHandler;
 
         public readonly int TileSize = 32;
 

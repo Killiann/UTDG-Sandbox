@@ -10,11 +10,14 @@
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/DynamicEntities/Player/player_walk_up.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/Containers/chest.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/Containers/chest_open.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/Items/bullet_test.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/Items/gun_test.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/Lights/torch.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/TrainingDummy/testdummy.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/Entities/TrainingDummy/testdummy_hit.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/TileMaps/dungeontiles.png</File>
     <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Art/UI/cursor.png</File>
+    <File>C:/Users/k.comerford/Documents/Other/UTDG-Sandbox/UTDG-DEV/Content/Fonts/File.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -28,5 +31,8 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Fonts/Basic.spritefont</File>
   </DestFiles>
 </SourceFileCollection>

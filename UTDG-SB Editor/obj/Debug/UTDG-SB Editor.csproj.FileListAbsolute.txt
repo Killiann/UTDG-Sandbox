@@ -28,9 +28,9 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\dungeontiles.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\player.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\testdummy.xnb
-C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-SB Editor.csprojAssemblyReference.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.MainForm.resources
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\collisionMap.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\depthMap.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG_SB_Editor.AddXToAllTilemap.resources
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\bin\Debug\Content\images\entityMap.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-SB Editor\obj\Debug\UTDG-SB Editor.csprojAssemblyReference.cache

@@ -27,6 +27,12 @@ namespace UTDG_DEV.Handlers
         public Texture2D chest;
         public Texture2D chest_opening;
 
+        //Items
+        public Texture2D rayGun;
+
+        //bullets
+        public Texture2D basicBullet;
+
         //UI
         public Texture2D cursorTexture;
 
@@ -34,6 +40,9 @@ namespace UTDG_DEV.Handlers
         public Texture2D redTexture;
         public Texture2D blueTexture;
         public Texture2D greenTexture;
+
+        //fonts
+        public SpriteFont basicFont;
 
         public void LoadContent(Main game)
         {
@@ -63,6 +72,12 @@ namespace UTDG_DEV.Handlers
             chest = game.Content.Load<Texture2D>("Art/Entities/Containers/chest");
             chest_opening = game.Content.Load<Texture2D>("Art/Entities/Containers/chest_open");
 
+            //items
+            rayGun = game.Content.Load<Texture2D>("Art/Entities/Items/gun_test");
+
+            //bullets
+            basicBullet = game.Content.Load<Texture2D>("Art/Entities/Items/bullet_test");
+
             //UI
             cursorTexture = game.Content.Load<Texture2D>("Art/UI/cursor");
 
@@ -75,7 +90,10 @@ namespace UTDG_DEV.Handlers
             Color[] a_green = Enumerable.Range(0, 1).Select(i => Color.Green).ToArray();
             redTexture.SetData(a_red);
             blueTexture.SetData(a_blue);
-            greenTexture.SetData(a_green);            
+            greenTexture.SetData(a_green);
+
+            //Fonts
+            basicFont = game.Content.Load<SpriteFont>("Fonts/Basic");
         }
     }
 }

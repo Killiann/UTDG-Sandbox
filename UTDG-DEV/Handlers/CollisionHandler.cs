@@ -42,7 +42,7 @@ namespace UTDG_DEV.Handlers
                     int yPos = i / (int)mapDimensions.X * tileSize;
                     Rectangle tileBounds = new Rectangle(xPos, yPos, tileSize, tileSize);
                     if (tileBounds.Intersects(xBounds))
-                    {
+                    {                       
                         float intersectionDepth = GetHorzDepth(xBounds, tileBounds);
                         xBounds.X += (int)intersectionDepth;
                         entity.SetXPosition(xBounds.X);
@@ -102,6 +102,67 @@ namespace UTDG_DEV.Handlers
             }
         }
 
+        public bool IsColliding(DynamicEntity entity, out Entity collidedEntity)
+        {
+            collidedEntity = null;
+
+            //x
+            Rectangle xBounds = new Rectangle((int)entity.CollisionBounds().X + (int)Math.Round(entity.velocity.X), (int)entity.CollisionBounds().Y, entity.CollisionBounds().Width, entity.CollisionBounds().Height);
+            for (int i = 0; i < collisionMap.Length; i++)
+            {
+                if (collisionMap[i] == 1)
+                {
+                    int xPos = i % (int)mapDimensions.X * tileSize;
+                    int yPos = i / (int)mapDimensions.X * tileSize;
+                    Rectangle tileBounds = new Rectangle(xPos, yPos, tileSize, tileSize);
+                    if (tileBounds.Intersects(xBounds))                    
+                        return true;                    
+                }
+            }
+
+            for (int i = 0; i < scene.LiveEntities.Count; i++)
+            {
+                if (scene.LiveEntities[i] is CollidableEntity)
+                {
+                    Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
+                    if (entityCollision.Intersects(xBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                    {
+                        collidedEntity = scene.LiveEntities[i];
+                        return true;
+                    }
+                }
+            }
+
+            //y
+            Rectangle yBounds = new Rectangle((int)entity.CollisionBounds().X, (int)entity.CollisionBounds().Y + (int)Math.Round(entity.velocity.Y), entity.CollisionBounds().Width, entity.CollisionBounds().Height);
+            for (int i = 0; i < collisionMap.Length; i++)
+            {
+                if (collisionMap[i] == 1)
+                {
+                    int xPos = i % (int)mapDimensions.X * tileSize;
+                    int yPos = i / (int)mapDimensions.X * tileSize;
+                    Rectangle tileBounds = new Rectangle(xPos, yPos, tileSize, tileSize);
+                    if (tileBounds.Intersects(yBounds))         
+                        return true;                    
+                }
+            }
+
+            //other entities
+            for (int i = 0; i < scene.LiveEntities.Count; i++)
+            {
+                if (scene.LiveEntities[i] is CollidableEntity)
+                {
+                    Rectangle entityCollision = ((CollidableEntity)scene.LiveEntities[i]).CollisionBounds();
+                    if (entityCollision.Intersects(yBounds) && scene.LiveEntities[i].GetId() != entity.GetId())
+                    {
+                        collidedEntity = scene.LiveEntities[i];
+                        return true;
+                    }
+                }
+            }            
+            return false;
+        }
+
         private bool CalculateIntersect(Rectangle player, Rectangle tile, Direction direction, out Vector2 depth)
         {
             depth = Vector2.Zero;
@@ -136,6 +197,6 @@ namespace UTDG_DEV.Handlers
             if (Math.Abs(dist) >= minDist)
                 return 0f;
             return dist > 0 ? minDist - dist : -minDist - dist;
-        }
+        }       
     }
 }

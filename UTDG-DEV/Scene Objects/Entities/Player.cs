@@ -18,7 +18,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
         private PlayerInputHandler inputHandler;
         private PhysicsHandler physicsHandler;
         private CollisionHandler collisionHandler;
-        public AnimationHandler animationHandler;
+        public PlayerAnimationHandler animationHandler;
 
         public Player(Scene scene, Vector2 SpawnPos)
         {
@@ -36,7 +36,7 @@ namespace UTDG_DEV.Scene_Objects.Entities
             inputHandler = new PlayerInputHandler();
             physicsHandler = new PhysicsHandler();
             collisionHandler = new CollisionHandler(scene);
-            animationHandler = new DynamicAnimationHandler(scene.game, scene.game.textureHandler.player_idle, 20, scene.game.textureHandler.player_moveX, null, scene.game.textureHandler.player_moveUp, null);
+            animationHandler = new PlayerAnimationHandler(scene.game, scene.game.textureHandler.player_idle, 20, null, scene.game.textureHandler.player_moveX, null, scene.game.textureHandler.player_moveUp, null);
         }
 
         public override Rectangle CollisionBounds(){ return new Rectangle((int)position.X, (int)position.Y, 20, 16); }
@@ -54,8 +54,9 @@ namespace UTDG_DEV.Scene_Objects.Entities
         }
 
         public override void Draw(SpriteBatch spriteBatch)
-        {            
-            animationHandler.Draw(this, spriteBatch, 0.5f);
+        {
+            bool isTurningLeft = scene.game.mouseInputHandler.GetRealMousePos().X < position.X ? true : false;
+            animationHandler.Draw(this, spriteBatch, 0.5f, isTurningLeft);
         }
         public override void DrawBehindWalls(SpriteBatch spriteBatch)
         {

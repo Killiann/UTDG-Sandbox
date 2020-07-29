@@ -85,6 +85,30 @@
 /processorParam:TextureFormat=Color
 /build:Art/Entities/Containers/chest_open.png
 
+#begin Art/Entities/Items/bullet_test.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Art/Entities/Items/bullet_test.png
+
+#begin Art/Entities/Items/gun_test.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Art/Entities/Items/gun_test.png
+
 #begin Art/Entities/Lights/torch.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -144,4 +168,11 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Art/UI/cursor.png
+
+#begin Fonts/File.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/File.spritefont;Fonts/Basic.spritefont
 

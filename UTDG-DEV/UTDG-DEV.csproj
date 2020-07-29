@@ -43,16 +43,20 @@
   <ItemGroup>
     <Compile Include="Handlers\AnimationHandler.cs" />
     <Compile Include="Handlers\CollisionHandler.cs" />
+    <Compile Include="Handlers\TextHandler.cs" />
     <Compile Include="Handlers\MouseInputHandler.cs" />
     <Compile Include="Handlers\PhysicsHandler.cs" />
     <Compile Include="Handlers\PlayerInputHandler.cs" />
+    <Compile Include="Inventory\InventoryHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Handlers\TextureHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene Objects\Camera.cs" />
+    <Compile Include="Scene Objects\Entities\Bullet.cs" />
     <Compile Include="Scene Objects\Entities\Chest.cs" />
     <Compile Include="Scene Objects\Entities\EntityBase.cs" />
+    <Compile Include="Scene Objects\Entities\Item.cs" />
     <Compile Include="Scene Objects\Entities\Lights.cs" />
     <Compile Include="Scene Objects\Entities\Player.cs" />
     <Compile Include="Scene Objects\Entities\TrainingDummy.cs" />

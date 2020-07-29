@@ -24,8 +24,8 @@ namespace UTDG_DEV.Scene_Objects.Entities
             this.id = id;
             this.scene = scene;
             offset = new Vector2(6, 16);
-            this.position = position += offset;            
-            animationHandler = new ToggleAnimationHandler(scene.game, scene.game.textureHandler.chest, 0, scene.game.textureHandler.chest_opening, 1);
+            this.position = position += offset;
+            animationHandler = new ToggleAnimationHandler(scene.game, scene.game.textureHandler.chest, 0, null, scene.game.textureHandler.chest_opening, 1);
         }
 
         public void Open()

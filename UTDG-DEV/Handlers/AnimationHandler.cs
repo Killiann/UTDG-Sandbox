@@ -19,12 +19,13 @@ namespace UTDG_DEV.Handlers
         protected readonly Texture2D idleTexture;
         protected Texture2D currentTexture;
         protected bool movingLeft = false;
+        protected Vector2 origin = Vector2.Zero;
 
         //behind wall
         protected Texture2D idleTextureMask;
         protected Texture2D currentMask;
 
-        public AnimationHandler(Main main, Texture2D idleTexture, int? idleFrameRate)
+        public AnimationHandler(Main main, Texture2D idleTexture, int? idleFrameRate, Vector2? origin)
         {
             this.idleTexture = idleTexture;
             if (idleFrameRate != null) this.idleFrameRate = (int)idleFrameRate;
@@ -35,8 +36,9 @@ namespace UTDG_DEV.Handlers
 
             idleTextureMask = GetMask(main.GraphicsDevice, idleTexture);
             currentMask = idleTextureMask;
-        }
 
+            if (origin != null) this.origin = (Vector2)origin;
+        }        
         protected Texture2D GetMask(GraphicsDevice graphics, Texture2D original)
         {
             Color[] originalData = new Color[original.Width * original.Height];
@@ -72,12 +74,12 @@ namespace UTDG_DEV.Handlers
         public virtual void Draw(Entity entity, SpriteBatch spriteBatch, float depth)
         {
             Update();
-            spriteBatch.Draw(currentTexture, entity.RenderBounds(), new Rectangle(currentFrame * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, movingLeft == true ? SpriteEffects.FlipHorizontally : SpriteEffects.None, depth);
+            spriteBatch.Draw(currentTexture, entity.RenderBounds(), new Rectangle(currentFrame * 16, 0, 16, 16), Color.White, 0f, origin, movingLeft == true ? SpriteEffects.FlipHorizontally : SpriteEffects.None, depth);
         }
 
         public virtual void DrawBehindWall(Entity entity, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(currentMask, entity.RenderBounds(), new Rectangle(currentFrame * 16, 0, 16, 16), Color.White, 0f, Vector2.Zero, movingLeft == true ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+            spriteBatch.Draw(currentMask, entity.RenderBounds(), new Rectangle(currentFrame * 16, 0, 16, 16), Color.White, 0f, origin, movingLeft == true ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
         }                  
     }
 
@@ -88,7 +90,7 @@ namespace UTDG_DEV.Handlers
         private bool isAnimationRunning = false;
         private int singleAnimFrameRate;
 
-        public SingleAnimationHandler(Main game, Texture2D idleTexture, int? idleFrameRate, Texture2D singleAnimation, int? singleAnimFrameRate) : base(game, idleTexture, idleFrameRate)
+        public SingleAnimationHandler(Main game, Texture2D idleTexture, int? idleFrameRate, Vector2? origin, Texture2D singleAnimation, int? singleAnimFrameRate) : base(game, idleTexture, idleFrameRate, origin)
         {
             this.singleAnimation = singleAnimation;
 
@@ -143,7 +145,7 @@ namespace UTDG_DEV.Handlers
         private bool IsOn = false;
         private bool IsAnimating = false;
 
-        public ToggleAnimationHandler(Main game, Texture2D idleAnimation, int? idleFrameRate, Texture2D singleAnimation, int? singleAnimationFrameRate) : base(game, idleAnimation, idleFrameRate)
+        public ToggleAnimationHandler(Main game, Texture2D idleAnimation, int? idleFrameRate, Vector2? origin, Texture2D singleAnimation, int? singleAnimationFrameRate) : base(game, idleAnimation, idleFrameRate, origin)
         {
             this.singleAnimation = singleAnimation;
             if (singleAnimationFrameRate != null) this.singleAnimationFrameRate = (int)singleAnimationFrameRate;
@@ -227,7 +229,7 @@ namespace UTDG_DEV.Handlers
         private int movingXFrameRate;
         private int movingUpFrameRate;
 
-        public DynamicAnimationHandler(Main game, Texture2D idleTexture, int? idleFrameRate, Texture2D movingXTexture, int? movingXFrameRate, Texture2D movingUpTexture, int? movingUpFrameRate) : base(game, idleTexture, idleFrameRate)
+        public DynamicAnimationHandler(Main game, Texture2D idleTexture, int? idleFrameRate, Vector2? origin, Texture2D movingXTexture, int? movingXFrameRate, Texture2D movingUpTexture, int? movingUpFrameRate) : base(game, idleTexture, idleFrameRate, origin)
         {
             this.movingXTexture = movingXTexture;
             this.movingUpTexture = movingUpTexture;
@@ -254,28 +256,35 @@ namespace UTDG_DEV.Handlers
         public override void Draw(Entity entity, SpriteBatch spriteBatch, float depth)
         {
             DynamicEntity currentEntity = (DynamicEntity)entity;
+    
+            if (currentEntity.directionVector == Vector2.Zero && prevDirection != Vector2.Zero)
+                ChangeTexture(idleTexture, idleTextureMask, idleFrameRate);
+            else if (currentEntity.directionVector.X == 0 && currentEntity.directionVector.Y == -1 &&
+                (currentEntity.directionVector != prevDirection))
+                ChangeTexture(movingUpTexture, movingUpTextureMask, movingUpFrameRate);
+            else if ((currentEntity.directionVector.X != 0 || currentEntity.directionVector.Y == 1) && prevDirection.X != currentEntity.directionVector.X || prevDirection.Y != currentEntity.directionVector.Y)
+                ChangeTexture(movingXTexture, movingXTextureMask, movingXFrameRate);
 
-            //if (currentEntity.velocity != new Vector2(0, 0)) 
-            //{
-                if (currentEntity.directionVector == Vector2.Zero && prevDirection != Vector2.Zero)
-                    ChangeTexture(idleTexture, idleTextureMask, idleFrameRate);
-                else if (currentEntity.directionVector.X == 0 && currentEntity.directionVector.Y == -1 &&
-                    (currentEntity.directionVector != prevDirection))
-                    ChangeTexture(movingUpTexture, movingUpTextureMask, movingUpFrameRate);
-                else if ((currentEntity.directionVector.X != 0 || currentEntity.directionVector.Y == 1) && prevDirection.X != currentEntity.directionVector.X || prevDirection.Y != currentEntity.directionVector.Y)
-                    ChangeTexture(movingXTexture, movingXTextureMask, movingXFrameRate);
-
+            if (!(entity is Player))
+            {
                 if (currentEntity.directionVector.X < 0) movingLeft = true;
                 else if (currentEntity.directionVector.X > 0) movingLeft = false;
-            //}
-            //else
-            //{
-            //    if (currentTexture != idleTexture)
-            //        ChangeTexture(idleTexture, idleTextureMask);
-            //}
+            }
             
             base.Draw(entity, spriteBatch, depth);
             prevDirection = currentEntity.directionVector;
+        }
+    }
+
+    public class PlayerAnimationHandler : DynamicAnimationHandler
+    {
+        public PlayerAnimationHandler(Main game, Texture2D idleTexture, int? idleFrameRate, Vector2? origin, Texture2D movingXTexture, int? movingXFrameRate, Texture2D movingUpTexture, int? movingUpFrameRate) : base(game, idleTexture, idleFrameRate, origin, movingXTexture, movingXFrameRate, movingUpTexture, movingUpFrameRate)
+        {}
+
+        public void Draw(Entity entity, SpriteBatch spriteBatch, float depth, bool isTurnedLeft)
+        {
+            movingLeft = isTurnedLeft;
+            base.Draw(entity, spriteBatch, depth);
         }
     }
 }

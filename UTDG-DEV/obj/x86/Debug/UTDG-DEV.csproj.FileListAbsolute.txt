@@ -20,7 +20,6 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.csprojAssemblyReference.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.csproj.CoreCompileInputs.cache
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.csproj.CopyComplete
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.exe
@@ -32,3 +31,7 @@ C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Lights\torch.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Containers\chest.xnb
 C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Containers\chest_open.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Items\bullet_test.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Art\Entities\Items\gun_test.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\bin\Windows\x86\Debug\Content\Fonts\Basic.xnb
+C:\Users\k.comerford\Documents\Other\UTDG-Sandbox\UTDG-DEV\obj\x86\Debug\UTDG-DEV.csprojAssemblyReference.cache
